@@ -23,6 +23,8 @@
         }
     ],
     "autoload": {
-        "psr-4": {"sumish\\": "framework/"}
+        "psr-4": {
+            "Sumish\\": "src/"
+	}
     }
 }
