@@ -12,7 +12,7 @@ class Router {
 
     public function getURI() {
         if (is_null($_REQUEST['route'])) {
-            $route = strtok($_SERVER['REQUEST_URI'], '?');
+            $route = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         } else {
             $route = $_REQUEST['route'] ?? '/';
         }
