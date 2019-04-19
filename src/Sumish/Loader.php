@@ -10,8 +10,16 @@ class Loader {
     }
 
     public function model($model) {
+        if (strrpos($model, '/')) {
+            $parts = explode('/', $model);
+            $path = DIR_APP . '/' . $parts[0];
+            $model = $parts[1];
+        } else {
+            //$app->path = DIR_APP . '/' . $app->name;
+            $path = $this->container->app->path;
+        }
+
         $class = ucfirst($model) . 'Model';
-        $path = $this->container->app->path;
         $file = $path . '/model.php';
 
         if (is_file($file)) {
